@@ -2,6 +2,7 @@ library(tidyverse)
 library(spatstat)
 library(ggthemes)
 
+par(mfrow=c(1,1))
 ##########################################################
 # Representation: Persistence Image (PI)
 ##########################################################

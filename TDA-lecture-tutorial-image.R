@@ -42,9 +42,9 @@ ggplot(df,aes(x,y,fill=z))+
 	scale_fill_gradient2(limits=c( -2,3 ) )
 
 # compute persistent homology using filtration diagram
-gftest = gridFiltration(FUNvalues=dtex)
+gftest = gridFiltration(FUNvalues=dtex,sublevel=TRUE)
 diagtest = filtrationDiag(filtration = gftest,maxdimension = 1, 
-													library="Dionysus",location=T)
+													library="Dionysus",location=TRUE)
 plot(diagtest[["diagram"]])
 diagtest$diagram
 
@@ -77,7 +77,7 @@ par(mfrow=c(2,2))
 gparrot.sub1 = imsub(grayscale(parrots),x < 400, y > 100)
 gparrot.sub1 %>% plot()
 
-gfparrot1 = gridFiltration(FUNvalues=as.array(gparrot.sub1))
+gfparrot1 = gridFiltration(FUNvalues=as.array(gparrot.sub1),sublevel=TRUE)
 diagparrot1 = filtrationDiag(filtration = gfparrot1,maxdimension = 1)
 plot(diagparrot1$diagram)
 
@@ -85,6 +85,6 @@ plot(diagparrot1$diagram)
 gparrot.sub2 = imsub(grayscale(parrots),x > 400, y > 100)
 gparrot.sub2 %>% plot()
 
-gfparrot2 = gridFiltration(FUNvalues=as.array(gparrot.sub2))
-diagparrot2 = filtrationDiag(filtration = gfparrot2,maxdimension = 1)
+gfparrot2 = gridFiltration(FUNvalues=as.array(gparrot.sub2),sublevel=TRUE)
+diagparrot2 = filtrationDiag(filtration = gfparrot2,maxdimension = 1,location=T)
 plot(diagparrot2$diagram)
